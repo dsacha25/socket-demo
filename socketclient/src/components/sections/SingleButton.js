@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 0,
     },
     button: {
-        backgroundImage: 'linear-gradient(to top, #a3bded 0%, #6991c7 100%)',
+        backgroundImage: 'linear-gradient(to top, #6991c7 0%, #a3bded 2000%)',
         display: 'flex',
         width: '100%',
         height: '100%',
@@ -101,7 +101,7 @@ const SingleButton = ({ multiCount, index }) => {
 
         // ===== set socket it for multi ===== //
         setId(socket.io.engine.id);
-    }, [index, mCount, socket]); //// <<== Only called if count ||multiCount changes
+    }, [index, mCount, socket]); //// <<== Only called if count || multiCount changes
 
     const handleMultiCount = (e) => {
         setBtnIndex(e); //// <<== which button was clicked?
@@ -117,9 +117,8 @@ const SingleButton = ({ multiCount, index }) => {
     return (
         <Fragment value={index}>
             {isMulti ? (
-                <Paper value={index} className={classes.root}>
+                <Paper elevation={0} className={classes.root}>
                     <Typography
-                        value={index}
                         style={{
                             textAlign: 'center',
                             backgroundColor: '#6991c7',
@@ -149,7 +148,7 @@ const SingleButton = ({ multiCount, index }) => {
                     </Typography>
                 </Paper>
             ) : (
-                <Paper value={index} className={classes.root}>
+                <Paper elevation={0} value={index} className={classes.root}>
                     <Button className={classes.button} onClick={handleCount}>
                         <Typography variant="h2">{count}</Typography>
                     </Button>

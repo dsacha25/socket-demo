@@ -4,9 +4,9 @@ const cors = require('cors');
 
 // ============================================================= //
 // ==================== Setup HTTP Server ====================== //
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 8000;
 const server = app.listen(PORT, () => {
-    console.log('listening on 7000');
+    console.log('listening on 8000');
 });
 
 const io = require('socket.io')(server);
@@ -34,15 +34,15 @@ io.on('connection', (socket) => {
 
     socket.on('count to server', (count) => {
         io.emit('count to clients', count);
-        console.log(count);
+        // console.log(count);
     });
 
     // ===== MULTI LISTENER ===== //
 
-    socket.on('mCount 0 to server', (count) => {
+    socket.on('mCount to server', (count) => {
         // console.log(count);
 
-        io.emit('mCount 0 to clients', count);
+        io.emit('mCount to clients', count);
     });
     socket.on('mCount 1 to server', (count) => {
         // console.log(count);

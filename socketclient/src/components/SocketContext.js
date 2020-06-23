@@ -7,7 +7,7 @@ const SocketContext = (props) => {
     const [socket, setSocket] = useState();
 
     if (!socket) {
-        setSocket(io('http://localhost:7000'));
+        setSocket(io('http://localhost:8000'));
     }
 
     return (
